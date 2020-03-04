@@ -1,0 +1,76 @@
+<div class="card">
+    <div class="card-body">
+      <form [formGroup]="angForm" novalidate>
+        <div class="form-group">
+          <label class="col-md-4">Employee Name</label>
+          <input type="text" class="form-control"
+          formControlName="EmployeeName" 
+          #EmployeeName />
+        </div>
+        <div *ngIf="angForm.controls['EmployeeName'].invalid && (angForm.controls['EmployeeName'].dirty || angForm.controls['EmployeeName'].touched)" class="alert alert-danger">
+            <div *ngIf="angForm.controls['EmployeeName'].errors.required">
+              Employee Name is required.
+            </div>
+          </div>
+        <div class="form-group">
+            <label class="col-md-4">Employee ID</label>
+            <input type="number" class="form-control" 
+            formControlName="EmployeeID" 
+          #EmployeeID/>
+          </div>
+          <div *ngIf="angForm.controls['EmployeeID'].invalid && (angForm.controls['EmployeeID'].dirty || angForm.controls['EmployeeID'].touched)" class="alert alert-danger">
+            <div *ngIf="angForm.controls['EmployeeID'].errors.required">
+              Employee ID is required.
+            </div>
+          </div>
+        <div class="form-group">
+          <label class="col-md-4">Designation</label>
+          <input type="text" class="form-control"
+          formControlName="Desgnation" 
+          #Desgnation />
+        </div>
+        <div *ngIf="angForm.controls['Desgnation'].invalid && (angForm.controls['Desgnation'].dirty || angForm.controls['Desgnation'].touched)" class="alert alert-danger">
+            <div *ngIf="angForm.controls['Desgnation'].errors.required">
+             Designation is required.
+            </div>
+          </div>
+        <div class="form-group">
+            <label class="col-md-4">Email ID</label>
+            <input type="text" class="form-control" 
+            formControlName="EmailID" 
+          #EmailID />
+          </div>
+          <div *ngIf="angForm.controls['EmailID'].invalid && (angForm.controls['EmailID'].dirty || angForm.controls['EmailID'].touched)" class="alert alert-danger">
+            <div *ngIf="angForm.controls['EmailID'].errors.required">
+             Email ID is required.
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-4">Mobile Number</label>
+            <input type="number" class="form-control" 
+            formControlName="MobileNumber" 
+          #MobileNumber />
+          </div>
+          <div *ngIf="angForm.controls['MobileNumber'].invalid && (angForm.controls['MobileNumber'].dirty || angForm.controls['MobileNumber'].touched)" class="alert alert-danger">
+            <div *ngIf="angForm.controls['MobileNumber'].errors.required">
+             Mobile Number is required.
+            </div>
+          </div>
+        <div class="form-group">
+            <label class="col-md-4">Address</label>
+            <textarea class="form-control" rows = 7 cols = "5" 
+            formControlName="Address" 
+          #Address></textarea>
+          </div>
+          <div *ngIf="angForm.controls['Address'].invalid && (angForm.controls['Address'].dirty || angForm.controls['Address'].touched)" class="alert alert-danger">
+            <div *ngIf="angForm.controls['Address'].errors.required">
+             Adderss is required.
+            </div>
+          </div>
+        <div class="form-group">
+          <button (click) = "addEmployee(EmployeeName.value, EmployeeID.value, Desgnation.value, EmailID.value, MobileNumber.value, Address.value)" type="submit" class="btn btn-primary"
+          [disabled]="angForm.pristine || angForm.invalid">Add Details</button>
+        </div>
+      </form>
+    </div>
+  </div>
